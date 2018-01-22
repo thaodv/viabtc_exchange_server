@@ -1,5 +1,5 @@
 /*
- * Description: 
+ * Description:
  *     History: yang@haipo.me, 2017/03/16, create
  */
 
@@ -65,16 +65,19 @@ int main(int argc, char *argv[])
         printf("usage: %s config.json\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
     if (process_exist(__process__) != 0) {
         printf("process: %s exist\n", __process__);
         exit(EXIT_FAILURE);
     }
-
+    printf("process RRRRR");
     int ret;
     ret = init_mpd();
+    printf("process RRRRREEEEEE");
     if (ret < 0) {
         error(EXIT_FAILURE, errno, "init mpd fail: %d", ret);
     }
+
     ret = init_config(argv[1]);
     if (ret < 0) {
         error(EXIT_FAILURE, errno, "load config fail: %d", ret);
